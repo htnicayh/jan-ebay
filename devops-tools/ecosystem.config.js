@@ -5,7 +5,7 @@ module.exports = {
     append_env_to_name: true,
     instance: 'max',
     autorestart: true,
-    watch: false,
+    watch: true,
     max_memory_restart: '1G',
     env: {
       NODE_ENV: 'development'
@@ -22,22 +22,22 @@ module.exports = {
 
   deploy : {
     production : {
-      key  : '~/Downloads/macbook-localhost.pem',
-      user : 'ubuntu',
-      host : '44.212.43.7',
+      key  : '/path/to/ssh-key.pem',
+      user : 'USER',
+      host : 'HOST',
       ref  : 'origin/master',
-      repo : 'git@github.com:htnicayh/jan-ebay.git',
-      path : '/home/ubuntu/jan-ebay',
-      'post-deploy': 'yarn install & yarn build && pm2 reload devops-tools/ecosystem.config.js --env production'
+      repo : 'https://git.jancargo.com/phuongkhang/ebay-us-module.git',
+      path : '/jan-ebay',
+      'post-deploy': 'npm install & npm run build && pm2 reload devops-tools/ecosystem.config.js --env production'
     },
     development: {
-      key  : '~/Downloads/macbook-localhost.pem',
-      user : 'ubuntu',
-      host : '18.212.26.255',
+      key  : '/path/to/ssh-key.pem',
+      user : 'USER',
+      host : 'HOST',
       ref  : 'origin/test',
-      repo : 'git@github.com:htnicayh/jan-ebay.git',
-      path : '/home/ubuntu/jan-ebay',
-      'post-deploy': 'yarn install && pm2 && yarn build && startOrRestart devops-tools/ecosystem.config.js --env development'
+      repo : 'https://git.jancargo.com/phuongkhang/ebay-us-module.git',
+      path : '/jan-ebay',
+      'post-deploy': 'npm install && npm run build && pm2 reload devops-tools/ecosystem.config.js --env development'
     }
   }
 };
