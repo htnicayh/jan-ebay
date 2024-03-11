@@ -28,7 +28,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'git@github.com:htnicayh/jan-ebay.git',
       path : '/home/ubuntu/jan-ebay',
-      'post-deploy': 'yarn install && pm2 startOrRestart devops-tools/ecosystem.config.js --env production'
+      'post-deploy': 'yarn install & yarn build && pm2 startOrRestart devops-tools/ecosystem.config.js --env production'
     },
     development: {
       key  : '~/Downloads/macbook-localhost.pem',
@@ -37,7 +37,7 @@ module.exports = {
       ref  : 'origin/test',
       repo : 'git@github.com:htnicayh/jan-ebay.git',
       path : '/home/ubuntu/jan-ebay',
-      'post-deploy': 'yarn install && pm2 startOrRestart devops-tools/ecosystem.config.js --env development'
+      'post-deploy': 'yarn install && pm2 && yarn build && startOrRestart devops-tools/ecosystem.config.js --env development'
     }
   }
 };
