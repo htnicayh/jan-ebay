@@ -2,6 +2,7 @@ module.exports = {
   apps : [{
     name: 'jan-ebay',
     script: 'dist/main.js',
+    append_env_to_name: true,
     instance: 'max',
     autorestart: true,
     watch: false,
@@ -24,19 +25,19 @@ module.exports = {
       key  : '~/Downloads/macbook-localhost.pem',
       user : 'root',
       host : '44.212.43.7',
-      ref  : 'git-origin/master',
+      ref  : 'origin/master',
       repo : 'git@github.com:htnicayh/jan-ebay.git',
-      path : '/var/www/html/demo-pm2',
-      'post-deploy': 'yarn install && pm2 startOrRestart ecosystem.config.js --env production'
+      path : '/var/www/html/jan-ebay',
+      'post-deploy': 'yarn install && pm2 startOrRestart devops-tools/ecosystem.config.js --env production'
     },
     development: {
       key  : '~/Downloads/macbook-localhost.pem',
       user : 'root',
       host : '18.212.26.255',
-      ref  : 'git-origin/test',
+      ref  : 'origin/test',
       repo : 'git@github.com:htnicayh/jan-ebay.git',
-      path : '/var/www/html/demo-pm2',
-      'post-deploy': 'yarn install && pm2 startOrRestart ecosystem.config.js --env development'
+      path : '/var/www/html/jan-ebay',
+      'post-deploy': 'yarn install && pm2 startOrRestart devops-tools/ecosystem.config.js --env development'
     }
   }
 };
