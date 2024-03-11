@@ -23,20 +23,20 @@ module.exports = {
   deploy : {
     production : {
       key  : '~/Downloads/macbook-localhost.pem',
-      user : 'root',
+      user : 'ubuntu',
       host : '44.212.43.7',
       ref  : 'origin/master',
       repo : 'git@github.com:htnicayh/jan-ebay.git',
-      path : '/var/www/html/jan-ebay',
+      path : '/home/ubuntu/jan-ebay',
       'post-deploy': 'yarn install && pm2 startOrRestart devops-tools/ecosystem.config.js --env production'
     },
     development: {
       key  : '~/Downloads/macbook-localhost.pem',
-      user : 'root',
+      user : 'ubuntu',
       host : '18.212.26.255',
       ref  : 'origin/test',
       repo : 'git@github.com:htnicayh/jan-ebay.git',
-      path : '/var/www/html/jan-ebay',
+      path : '/home/ubuntu/jan-ebay',
       'post-deploy': 'yarn install && pm2 startOrRestart devops-tools/ecosystem.config.js --env development'
     }
   }
